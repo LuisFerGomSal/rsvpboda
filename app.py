@@ -48,9 +48,8 @@ def home():
     
     if request.method == "POST":
         details = request.form
-        firstName = details['fname']
-        lastName = details['lname']
-        cursor.execute("INSERT INTO guests(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
+        guestId = details['guestId']
+        cursor.execute("UPDATE guests SET confirmed = 1 WHERE guestId = %i", (guestId))
         mysql.connection.commit()
         cursor.close()
         return 'success'   

@@ -31,18 +31,14 @@
         {% if guestId != 0: %}
             <div id="rsvp">
                 <h1>Benvenido {{ guestName }}!</h1>
+                {% if aditionalGuests > 0: %}
+                    <h2>Cuentas con {{ aditionalGuests }} recepción adicional!</h2>
+                {% endif %}
                 {% if confirmed == 1: %}
                     <h2>Gracias por confirmar tu asistencia, te esperámos!</h2>
                 {% else %}
                 <form method="POST" action="">
                     <input type="text" name="guestId" value={{guestId}} hidden/>
-                    {% if aditionalGuests > 0: %}
-                        <h2>Cuentas con {{ aditionalGuests }} recepción adicional!</h2>
-                        <label>Utilizaré mi recepción adicional</label>
-                        <input type="checkBox" name="aditionalGuest">
-                        <br/>
-                        <br/>
-                    {% endif %}
                     <input id="confirm-btn" type="submit" value="CONFIRMAR ASISTENCIA">
                 </form>
                 {% endif %}
