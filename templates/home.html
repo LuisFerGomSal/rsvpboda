@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ url_for('static',filename='counter.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+    <title>Amanda y Emmanuel</title>
+</head>
+
+<body>
+
+    <div id="main-container">
+        <div id="title">
+            <img src="{{ url_for('static', filename='title-img.PNG') }}" />
+        </div>
+
+        <div id="photo">
+            <img src="{{ url_for('static', filename='photo-img.PNG') }}" />
+        </div>
+
+        <div id="itinerary">
+            <h1>Itinerario</h1>
+            <h2>Ceremonia | 5:00 PM</h2>
+            <h2>Recepción | 7:00 PM</h2>
+            <h1>Confirma tu asistencia antes del 1ro de Enero</h1>
+        </div>
+
+        <div id="rsvp">
+            {% if guestId != 0: %}
+                {% for guest in guests %}
+                    <tr>
+                        <th>
+                            {% if guest["id"] == guestId: %}
+                                <h1>Benvenido {{ guest["name"] }}!</h1>
+
+                                {% if confirmed == 1: %}
+                                    <h2>Gracias por confirmar tu asistencia, te esperámos!</h2>
+                                    {% else %}
+                                    {% if guest["guests"] > 0: %}
+                                        <h2>Tienes {{ guest["guests"] }} recepciones adicionales!</h2>
+                                    {% endif %}
+                                    <a id="confirm-btn" href="#">CONFIRMAR ASISTENCIA</a>
+                                {% endif %}
+                            {% endif %}
+                        </th>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+        <div id="map">
+            <h1>Rancho las Palmas</h1>
+            <h2>Carretera a San Luis, en el Ejido Jalapa, 21700 Mexicali, B.C.</h2>
+            <img src="{{ url_for('static', filename='map-img.PNG') }}" />
+        </div>
+    </div>
+
+</body>
+
+</html>

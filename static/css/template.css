@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pinyon+Script&display=swap');
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #FFF8F2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+
+#main-container{
+    width: 960px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-family: "Pinyon Script", serif;
+    color: #5E5C5C;
+    font-weight: 200;
+    font-size: 3em;
+    margin-bottom: -30px;
+}
+
+h2{
+    font-family: "PT Serif", serif;
+    color: #5E5C5C;
+    font-weight: 200;
+}
+
+#title{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+#photo{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+
+#itinerary{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+#rsvp{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+#confirm-btn{
+    padding: 10px;
+    background-color: #b7dcb9;
+    margin: 0 auto;
+    width: 10em;
+    text-decoration: none;
+    color: #5E5C5C;
+}
+
+#confirm-btn:hover{
+    background-color: #91c193;
+    transition: 300ms;
+}
+
+#map{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
