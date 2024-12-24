@@ -1,20 +1,15 @@
 from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
-import sys
-
-
 
 app = Flask(__name__)
 
 # CONFIG DB
-app.config['MYSQL_HOST'] = 'luisxd.mysql.pythonanywhere-services.com' 
+app.config['MYSQL_HOST'] = 'luisxd.mysql.pythonanywhere-services.com'
 app.config['MYSQL_USER'] = 'luisxd'
 app.config['MYSQL_PASSWORD'] = 'luis8888'
-app.config['MYSQL_DB'] = 'guests'
+app.config['MYSQL_DB'] = 'luisxd$guests'
 
 mysql = MySQL(app)
-
-
 
 guests = [{'id':1,'name':'Luis', 'guests':3},
           {'id':2,'name':'Jose', 'guests':0},
@@ -22,13 +17,13 @@ guests = [{'id':1,'name':'Luis', 'guests':3},
 
 @app.route("/")
 def home():
-    
+
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM guests")
     data = cursor.fetchall()
     mysql.connection.commit()
     cursor.close()
-    
+
     try:
         guestId = int(request.args.get('guestId'))
     except TypeError:
