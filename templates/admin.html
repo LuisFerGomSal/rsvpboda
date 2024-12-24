@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ url_for('static',filename='counter.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+    <title>Amanda y Emmanuel</title>
+</head>
+
+<body>
+
+    <div id="admin-container">
+        <table id="guests-table">
+            <tr>
+                <th>Guest ID</th>
+                <th>Guest Name</th>
+                <th>Companion</th>
+                <th>Confirmed</th>
+            </tr>
+            {%for guest in guests%} 
+                <tr>
+                    <td>{{guest[0]}}</td>
+                    <td>{{guest[1]}}</td>
+                    <td>{{guest[2]}}</td>
+                    <td>{{guest[3]}}</td>
+                </tr>
+            {%endfor%} 
+        </table>
+    </div>
+
+</body>
+
+</html>

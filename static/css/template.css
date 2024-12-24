@@ -90,3 +90,8 @@ h2{
     padding: 30px;
     margin-bottom: 30px;
 }
+
+#guests-table > th{
+    border: 1px bold #000000;
+    color: red;
+}
