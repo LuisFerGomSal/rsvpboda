@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import re
+import sys
+
 
 
 app = Flask(__name__)
@@ -14,19 +14,21 @@ app.config['MYSQL_DB'] = 'guests'
 
 mysql = MySQL(app)
 
-cursor = mysql.connection.cursor()
-queryString = "SELECT * FROM guests"
-cursor.execute(queryString)
-data = cursor.fetchall()
 
-mysql.connection.commit()
 
 guests = [{'id':1,'name':'Luis', 'guests':3},
           {'id':2,'name':'Jose', 'guests':0},
           {'id':3,'name':'Juan', 'guests':1}]
 
 @app.route("/")
-def home(data):
+def home():
+    
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM guests")
+    data = cursor.fetchall()
+    mysql.connection.commit()
+    cursor.close()
+    
     try:
         guestId = int(request.args.get('guestId'))
     except TypeError:
