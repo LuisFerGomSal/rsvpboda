@@ -21,36 +21,33 @@
         </div>
 
         <div id="itinerary">
-            {{ data }}
             <h1>Itinerario</h1>
             <h2>Ceremonia | 5:00 PM</h2>
             <h2>Recepción | 7:00 PM</h2>
             <h1>Confirma tu asistencia antes del 1ro de Enero</h1>
         </div>
 
-        <div id="rsvp">
-            {% if guestId != 0: %}
-                {% for guest in guests %}
-                    <tr>
-                        <th>
-                            {% if guest["id"] == guestId: %}
-                                <h1>Benvenido {{ guest["name"] }}!</h1>
-
-                                {% if confirmed == 1: %}
-                                    <h2>Gracias por confirmar tu asistencia, te esperámos!</h2>
-                                    {% else %}
-                                    {% if guest["guests"] > 0: %}
-                                        <h2>Tienes {{ guest["guests"] }} recepciones adicionales!</h2>
-                                    {% endif %}
-                                    <a id="confirm-btn" href="#">CONFIRMAR ASISTENCIA</a>
-                                {% endif %}
-                            {% endif %}
-                        </th>
-                    </tr>
-                {% endfor %}
-            {% endif %}
-
-        </div>
+        <!--RSVP SECTION-->
+        {% if guestId != 0: %}
+            <div id="rsvp">
+                <h1>Benvenido {{ guestName }}!</h1>
+                {% if confirmed == 1: %}
+                    <h2>Gracias por confirmar tu asistencia, te esperámos!</h2>
+                {% else %}
+                <form method="POST" action="">
+                    <input type="text" name="guestId" value={{guestId}} hidden/>
+                    {% if aditionalGuests > 0: %}
+                        <h2>Cuentas con {{ aditionalGuests }} recepción adicional!</h2>
+                        <label>Utilizaré mi recepción adicional</label>
+                        <input type="checkBox" name="aditionalGuest">
+                        <br/>
+                        <br/>
+                    {% endif %}
+                    <input id="confirm-btn" type="submit" value="CONFIRMAR ASISTENCIA">
+                </form>
+                {% endif %}
+            </div>
+        {% endif %}
 
         <div id="map">
             <h1>Rancho las Palmas</h1>
