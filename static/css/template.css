@@ -91,7 +91,18 @@ h2{
     margin-bottom: 30px;
 }
 
-#guests-table > th{
-    border: 1px bold #000000;
-    color: red;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
 }
