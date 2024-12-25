@@ -68,7 +68,14 @@ def home():
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html")
+
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM guests")
+    guests = cursor.fetchall()
+    mysql.connection.commit()
+    cursor.close()
+
+    return render_template("admin.html", guests=guests)
 
 
 if __name__ == "__main__":

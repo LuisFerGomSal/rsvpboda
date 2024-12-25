@@ -18,13 +18,15 @@
                 <th>Invitado</th>
                 <th>Recepciones</th>
                 <th>Confirmado</th>
+                <th>Enlace</th>
             </tr>
-            {%for guest in guests%} 
+            {%for guest in guests%}
                 <tr>
                     <td>{{guest[0]}}</td>
                     <td>{{guest[1]}}</td>
                     <td>{{guest[2]}}</td>
                     <td>{{guest[3]}}</td>
+                    <td>https://www.amandayemmanuel.xyz/?guestId={{guest[0]}}</td>
                 </tr>
             {%endfor%}
         </table>
