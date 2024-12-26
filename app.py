@@ -75,7 +75,13 @@ def admin():
     mysql.connection.commit()
     cursor.close()
 
-    return render_template("admin.html", guests=guests)
+    confirmedGuests = 0
+
+    for guest in guests:
+        if guest[3] == 1:
+            confirmedGuests += 1
+
+    return render_template("admin.html", guests=guests, confirmedGuests=confirmedGuests)
 
 
 if __name__ == "__main__":

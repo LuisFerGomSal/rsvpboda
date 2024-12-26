@@ -12,9 +12,20 @@
 <body>
 
     <div id="admin-container">
+        <div id="info">
+            <table>
+                <tr>
+                    <th>Confirmados</th>
+                </tr>
+                <tr>
+                    <td>
+                        {{confirmedGuests}}
+                    </td>
+                </tr>
+            </table>
+        </div>
         <table id="guests-table">
             <tr>
-                <th>ID</th>
                 <th>Invitado</th>
                 <th>Recepciones</th>
                 <th>Confirmado</th>
@@ -22,7 +33,6 @@
             </tr>
             {%for guest in guests%}
                 <tr>
-                    <td>{{guest[0]}}</td>
                     <td>{{guest[1]}}</td>
                     <td>{{guest[2]}}</td>
                     <td>{{guest[3]}}</td>
